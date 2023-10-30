@@ -1,6 +1,7 @@
 stages:
   - test
   - build
+  - run
   - publish
 
 tests:
@@ -17,6 +18,12 @@ build:amd64:
   artifacts:
     paths:
       - target/release/rust-gitlab-example
+
+run:
+  stage: run
+  image: rust
+  script:
+    - cargo run
 
 rustdoc:
   stage: build
